@@ -1,8 +1,8 @@
-# Web Development Project 2 - *Are You Smarter Than a 5th Grader Flashcards*
+# Web Development Project 2 - *Flashcards*
 
 Submitted by: **Xing Chen**
 
-This web app: **contains flashcards to test your knowledge on 5th grade questions**
+This web app: **contains flashcards to test your knowledge on "Are You Smarter Than A 5th Grader" questions**
 
 Time spent: **2** hours spent in total
 
