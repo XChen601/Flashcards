@@ -17,7 +17,8 @@ function App() {
     {question: "Who wrote the Harry Potter book series?", answer:"J.K. Rowling", difficulty:1},
     {question: "What is the capital of Australia?", answer:"Canberra", difficulty:1},
     {question: "What is the process by which plants make their food called?", answer:"Photosynthesis", difficulty:1},
-    {question: "In classical music, what instruments usually comprise a string quartet?", answer:"Two violins, viola and a cello", difficulty:1}
+    {question: "In classical music, what instruments usually comprise a string quartet?", answer:"Two violins, viola and a cello", difficulty:2},
+    {question: "In colonial America, what was the Sugar Act?", answer:"A tax on molasses and wine", difficulty:2}
   ]
 
   const nextCard = () => {

@@ -43,9 +43,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
-
-.read-the-docs {
-  color: #888;
+.difficulty-0 {
+  background-color: rgb(49, 104, 49);
 }
+
+.difficulty-1 {
+  background-color: rgb(160, 111, 37);
+}
+
+.difficulty-2 {
+  background-color: rgb(148, 32, 32);
+}
+
+button {
+  margin: 0 10px;
+}
+
