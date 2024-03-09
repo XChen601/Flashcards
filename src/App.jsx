@@ -6,6 +6,8 @@ import Flashcard from './components/Flashcard';
 
 function App() {
   const [cardNum, setCardNum] = useState(0);
+  const [cardSide, setCardSide] = useState('front');
+
   const cardsData = [
     {question: "What is the capital of Russia?", answer:"Moscow", difficulty:0},
     {question: "What is the process of water turning into vapor called?", answer:"Evaporation", difficulty:0},
@@ -24,6 +26,7 @@ function App() {
     } else {
       setCardNum(cardNum + 1);
     }
+    setCardSide('front');
   };
 
   const prevCard = () => {
@@ -32,12 +35,19 @@ function App() {
     } else {
       setCardNum(cardNum - 1);
     }
+    setCardSide('front');
   }
+
+  const flipCard = () => {
+    setCardSide(cardSide === 'front' ? 'back' : 'front');
+    console.log(cardSide)
+  };
+
   return (
     <>
       <h2>Are You Smarter Than a 5th Grader?</h2>
       <p>Question {cardNum+1}/{cardsData.length}</p>
-      <Flashcard cardData={cardsData[cardNum]}/>
+      <Flashcard cardData={cardsData[cardNum]} cardSide={cardSide} flipCard={flipCard}/>
       <div>
         <button onClick={prevCard}>←</button>
         <button onClick={nextCard}>→</button>

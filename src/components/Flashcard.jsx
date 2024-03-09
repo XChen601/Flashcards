@@ -1,12 +1,6 @@
 import { useState } from 'react'
 
-const Flashcard = ({cardData}) => {
-  const [cardSide, setCardSide] = useState('front');
-
-  const flipCard = () => {
-    setCardSide(cardSide === 'front' ? 'back' : 'front');
-    console.log(cardSide)
-  };
+const Flashcard = ({cardData, cardSide, flipCard}) => {
 
   return (
     <div className="card" onClick={flipCard}>

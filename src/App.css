@@ -37,7 +37,14 @@
   padding: 2em;
   height: 300px;
   width: 300px;
+  border: 3px gray solid;
+  margin: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .read-the-docs {
   color: #888;
