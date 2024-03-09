@@ -62,3 +62,10 @@ button {
   margin: 0 10px;
 }
 
+.title {
+  margin-bottom: 0;
+}
+
+.description {
+  margin-top: 0;
+}

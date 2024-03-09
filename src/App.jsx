@@ -22,11 +22,13 @@ function App() {
   ]
 
   const nextCard = () => {
-    if (cardsData.length - 1 === cardNum) {
-      setCardNum(0);
-    } else {
-      setCardNum(cardNum + 1);
-    }
+    let randomCardNum;
+    do {
+      randomCardNum = Math.floor(Math.random() * cardsData.length);
+    } while (randomCardNum === cardNum);
+
+    setCardNum(randomCardNum);
+
     setCardSide('front');
   };
 
@@ -46,7 +48,8 @@ function App() {
 
   return (
     <>
-      <h2>Are You Smarter Than a 5th Grader?</h2>
+      <h2 className='title'>Are You Smarter Than a 5th Grader?</h2>
+      <p className='description'>Check out if you are smarter than a 5th grader!</p>
       <p>Question {cardNum+1}/{cardsData.length}</p>
       <Flashcard cardData={cardsData[cardNum]} cardSide={cardSide} flipCard={flipCard}/>
       <div>
