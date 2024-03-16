@@ -8,6 +8,9 @@ function App() {
   const [cardNum, setCardNum] = useState(0);
   const [cardSide, setCardSide] = useState('front');
 
+  const [answerInput, setAnswerInput] = useState('');
+  const [isCorrect, setIsCorrect] = useState(null);
+
   const cardsData = [
     {question: "What is the capital of Russia?", answer:"Moscow", difficulty:0},
     {question: "What is the process of water turning into vapor called?", answer:"Evaporation", difficulty:0},
@@ -22,6 +25,15 @@ function App() {
   ]
 
   const nextCard = () => {
+    if (cardNum === cardsData.length - 1) {
+      setCardNum(0);
+    } else {
+      setCardNum(cardNum + 1);
+    }
+    setCardSide('front');
+  };
+
+  const randomCard = () => {
     let randomCardNum;
     do {
       randomCardNum = Math.floor(Math.random() * cardsData.length);
@@ -30,7 +42,7 @@ function App() {
     setCardNum(randomCardNum);
 
     setCardSide('front');
-  };
+  }
 
   const prevCard = () => {
     if (cardNum === 0) {
@@ -46,6 +58,7 @@ function App() {
     console.log(cardSide)
   };
 
+
   return (
     <>
       <h2 className='title'>Are You Smarter Than a 5th Grader?</h2>
@@ -53,8 +66,21 @@ function App() {
       <p>Question {cardNum+1}/{cardsData.length}</p>
       <Flashcard cardData={cardsData[cardNum]} cardSide={cardSide} flipCard={flipCard}/>
       <div>
+        <label>Guess the answer: </label>
+        <input value={answerInput} onChange={(e) => setAnswerInput(e.target.value)}
+          style={{ borderColor: isCorrect === null ? 'white' : isCorrect ? 'green' : 'red' }}></input>
+        <button onClick={(e) => {
+          if (answerInput.toLowerCase() === cardsData[cardNum].answer.toLowerCase()) {
+            setIsCorrect(true);
+          } else {
+            setIsCorrect(false);
+          }
+        }}>Check Answer</button>
+      </div>
+      <div>
         <button onClick={prevCard}>←</button>
         <button onClick={nextCard}>→</button>
+        <button onClick={randomCard}>Random</button>
       </div>
     </>
   )
