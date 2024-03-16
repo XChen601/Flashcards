@@ -24,13 +24,20 @@ function App() {
     {question: "In colonial America, what was the Sugar Act?", answer:"A tax on molasses and wine", difficulty:2}
   ]
 
+  const resetCard = () => {
+    setCardSide('front');
+    setAnswerInput('');
+    setIsCorrect(null);
+  }
+
   const nextCard = () => {
     if (cardNum === cardsData.length - 1) {
       setCardNum(0);
     } else {
       setCardNum(cardNum + 1);
     }
-    setCardSide('front');
+    resetCard();
+
   };
 
   const randomCard = () => {
@@ -41,7 +48,7 @@ function App() {
 
     setCardNum(randomCardNum);
 
-    setCardSide('front');
+    resetCard();
   }
 
   const prevCard = () => {
@@ -50,7 +57,7 @@ function App() {
     } else {
       setCardNum(cardNum - 1);
     }
-    setCardSide('front');
+    resetCard();
   }
 
   const flipCard = () => {
